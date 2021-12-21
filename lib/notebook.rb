@@ -9,7 +9,9 @@ class Notebook
     @notes << note
   end
 
-  def test
-    @notes
+  def list
+    list = []
+    @notes.each { | note |  list << note.print_title }
+    list.join(", ")
   end
 end

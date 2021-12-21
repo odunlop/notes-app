@@ -7,4 +7,8 @@ class Note
   def new_body(body)
     @body = body
   end
+
+  def print_title
+    @title
+  end
 end
