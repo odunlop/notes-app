@@ -16,6 +16,7 @@ class Notebook
   end
 
   def contents(note_name)
+    raise "This note does not exist in the notebook" if @notes.include?(note_name) == false
     @notes.each do | note |
       if note == note_name
         return "#{note.print_title}: #{note.print_body}"

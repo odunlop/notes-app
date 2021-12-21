@@ -14,10 +14,17 @@ describe Notebook do
     expect(subject.list).to eq "Title 1, Title 2"
   end
 
-  it 'prints the title and body of a chosen note' do
-    note = Note.new("Title")
-    note.new_body("This is the content")
-    subject.save_note(note)
-    expect(subject.contents(note)).to eq "Title: This is the content"
+  describe '#contents' do
+
+    it 'prints the title and body of a chosen note' do
+      note = Note.new("Title")
+      note.new_body("This is the content")
+      subject.save_note(note)
+      expect(subject.contents(note)).to eq "Title: This is the content"
+    end
+    it 'raises an error if the user tries to view a note which has not been saved' do
+      unsaved_note = Note.new("Title")
+      expect{ subject.contents(unsaved_note) }.to raise_error "This note does not exist in the notebook"
+    end
   end
 end
