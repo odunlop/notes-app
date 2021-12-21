@@ -11,4 +11,8 @@ class Note
   def print_title
     @title
   end
+
+  def print_body
+    @body
+  end
 end

@@ -13,4 +13,11 @@ describe Notebook do
     subject.save_note(note2)
     expect(subject.list).to eq "Title 1, Title 2"
   end
+
+  it 'prints the title and body of a chosen note' do
+    note = Note.new("Title")
+    note.new_body("This is the content")
+    subject.save_note(note)
+    expect(subject.contents(note)).to eq "Title: This is the content"
+  end
 end
