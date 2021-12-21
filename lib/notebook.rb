@@ -1,6 +1,15 @@
 require_relative 'note'
 
 class Notebook
-  def add_note(note)
+  def initialize
+    @notes = []
+  end
+
+  def save_note(note)
+    @notes << note
+  end
+
+  def test
+    @notes
   end
 end
